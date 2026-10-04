@@ -1,5 +1,5 @@
 # API da Barbearia 
-Feito por:Matheus ELias da Silva Oliveira
+Feito por:Matheus Elias da Silva Oliveira
 
 API RESTful para gerenciar agendamentos de uma barbearia/salão de beleza, feita com **FastAPI**, **Pydantic** e **SQLAlchemy**, com banco de dados **SQLite**.
 

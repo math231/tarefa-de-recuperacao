@@ -1,6 +1,7 @@
 from typing import List, Optional
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
+from sqlalchemy import func
 
 import models
 import schemas
@@ -20,7 +21,7 @@ def criar(dados: schemas.AgendamentoCreate, db: Session = Depends(get_db)):
 def listar(servico: Optional[str] = None, db: Session = Depends(get_db)):
     consulta = db.query(models.Agendamento)
     if servico:
-        consulta = consulta.filter(models.Agendamento.servico == servico)
+        consulta = consulta.filter(func.lower(models.Agendamento.servico) == servico.lower())
     return consulta.all()
 
 @router.put("/{id}", response_model=schemas.AgendamentoResponse)
